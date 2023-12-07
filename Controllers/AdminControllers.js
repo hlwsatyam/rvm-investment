@@ -1,5 +1,5 @@
 const { MessageModel } = require("../Model/MessageModel");
-const { IntrestModel } = require("../Model/intrestModel");
+const { IntrestModel } = require("../Model/IntrestModel");
 
 const AdminPanelForMessage = async (req, res, next) => {
   try {
