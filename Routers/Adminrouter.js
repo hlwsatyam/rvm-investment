@@ -9,8 +9,8 @@ const {
 const AdminRouter = express.Router();
 
 AdminRouter.get("/messages", AdminPanelForMessage);
-AdminRouter.get("/intrests", AdminPanelForIntrest);
-AdminRouter.get("/trash", GetTrash);
+AdminRouter.post("/intrests", AdminPanelForIntrest);
+AdminRouter.post("/trash", GetTrash);
 AdminRouter.post("/delete/:id", Deletedata);
 
 module.exports = { AdminRouter };

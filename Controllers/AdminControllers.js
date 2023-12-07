@@ -1,6 +1,7 @@
 const { MessageModel } = require("../Model/MessageModel");
 const { IntrestModel } = require("../Model/IntrestModel");
 const { IntrestTrashModel } = require("../Model/TrashIntrestModel");
+const { AdminAccess } = require("../Authentication/AdminAccess");
 
 const AdminPanelForMessage = async (req, res, next) => {
   try {
@@ -15,6 +16,9 @@ const AdminPanelForMessage = async (req, res, next) => {
   }
 };
 const AdminPanelForIntrest = async (req, res, next) => {
+  if (!AdminAccess(req.body.user, req.body.password)) {
+    return res.status(201).json({ error: "Worng Credentials!" });
+  }
   try {
     let messages = await IntrestModel.find();
     if (messages) {
@@ -22,7 +26,7 @@ const AdminPanelForIntrest = async (req, res, next) => {
     }
     res.status(404).json({ error: "Somethng Went Worng!" });
   } catch (error) {
-    console.log(error);
+   
     return res.status(501).json({ error: "Something Went Worng!" });
   }
 };
@@ -56,6 +60,9 @@ const Deletedata = async (req, res, next) => {
 };
 
 const GetTrash = async (req, res, next) => {
+  if (!AdminAccess(req.body.user, req.body.password)) {
+    return res.status(201).json({ error: "Worng Credentials!" });
+  }
   try {
     let messages = await IntrestTrashModel.find();
     if (messages) {
