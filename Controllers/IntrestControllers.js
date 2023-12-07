@@ -1,4 +1,4 @@
-const { IntrestModel } = require("../Model/intrestModel");
+const { IntrestModel } = require("../Model/IntrestModel");
 const IntrestFormSubmit = async (req, res, next) => {
   const { postal, email, phone } = req.body;
   try {
