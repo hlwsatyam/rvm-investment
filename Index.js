@@ -21,7 +21,7 @@ App.use("/api/intrest", Interestrouter);
 const PORT = process.env.PORT || 8800;
 
 // for admin panel
-App.use("/api/auth", AuthRouter);
+App.use("/api/auth",AuthRouter);
 App.use("/api/admin", AdminRouter);
 
 App.listen(PORT, () => {
