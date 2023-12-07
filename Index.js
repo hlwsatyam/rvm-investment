@@ -24,6 +24,6 @@ const PORT = process.env.PORT || 8800;
 App.use("/api/auth", AuthRouter);
 App.use("/api/admin", AdminRouter);
 
-App.listen(8800, () => {
-  console.log("Server Is Running");
+App.listen(PORT, () => {
+  console.log(`Server Is Running! ${PORT}`);
 });
